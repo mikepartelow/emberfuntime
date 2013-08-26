@@ -1,0 +1,17 @@
+- bootstrap theme for tablesorter
+- bootstrap rows
+- fixed width fonts:
+ .tablesorter-bootstrap tbody td {
+   padding-left: 1em;
+   font-family: Courier, Sans-serif;
+ }
+
+ h2 {
+   font-family: Courier, Sans-serif;
+ }
+ 
+ 
+- issue count
+- filter/sort via URL
+- flesh out the show template
+- REST data store

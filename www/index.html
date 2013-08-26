@@ -22,6 +22,9 @@
   
   <script type="text/x-handlebars" data-template-name="issues-table-row">   
     <td>{{#linkTo 'issue' issue}}{{issue.id}}{{/linkTo}}</td>
+    <td>{{ymd issue.created_at}}</td>
+    <td>{{issue.priority}}</td>
+    <td>{{issue.status}}</td>
     <td>{{issue.owner}}</td>
     <td>{{issue.summary}}</td>
   </script>
@@ -29,7 +32,14 @@
   <script type="text/x-handlebars" data-template-name="issues-table"> 
     <table id="issues-table" class="table table-condensed table-bordered">
       <thead>
-        <tr><th>id</th><th>owner</th><th>summary</th>
+        <tr>
+          <th>id</th>
+          <th>created</th>
+          <th>priority</th>
+          <th class="filter-select" data-placeholder="All" data-value="Open">status</th>
+          <th class="filter-select" data-placeholder="All" data-value="">owner</th>
+          <th>summary</th>
+        </tr>
       </thead>
       <tbody>
         {{#each issue in model}}
