@@ -25,6 +25,26 @@ App.IssuesShowRoute = Ember.Route.extend({
   }
 });
 
+App.IssuesTableView = Ember.View.extend({
+  templateName: 'issues-table',
+  
+  didInsertElement: function() {
+    $("#issues-table").tablesorter({
+      theme:        'blue',
+      widgets:      [ 'zebra', ],
+    });    
+  }
+});
+
+App.IssuesTableRowView = Ember.View.extend({
+  templateName: 'issues-table-row',
+  tagName: 'tr',
+  
+  didInsertElement: function() {
+    $("#issues-table").trigger("update");
+  }  
+});
+
 App.Issue = DS.Model.extend({
 	created_at:   DS.attr('date'),
 	
