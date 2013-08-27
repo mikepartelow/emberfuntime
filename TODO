@@ -1,5 +1,6 @@
 - re-org code into MVC etc. dirs
 
-        
+- spinner while waiting for issues to load
+- update issue count based on # shown in table        
 
 - filter/sort via URL
