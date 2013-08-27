@@ -48,7 +48,7 @@ App.IssuesTableRowView = Ember.View.extend({
   tagName: 'tr',
   
   didInsertElement: function() {
-    $("#issues-table").trigger("update");
+    $("#issues-table").trigger("update");    
   }  
 });
 
@@ -71,13 +71,29 @@ Ember.Handlebars.helper('ymd', function(d, options) {
 
 
 App.ZeroClipboardComponent = Ember.Component.extend({
-    didInsertElement: function () {
-        var clip = new ZeroClipboard(this.$('button'));
-        
-        clip.on('complete', function (client, args) {
-          console.log('Copied "' + args.text + '" to clipboard');
-        });
-    }
+  didInsertElement: function () {
+    this.$('.poppy').tooltip({
+      placement: 'bottom',
+      html: true,
+      container: 'body',
+      trigger: 'manual'
+    });   
+
+    var clip = new ZeroClipboard(this.$('.clippy'));
+    
+    clip.on('complete', function (client, args) {
+      console.log('Copied "' + args.text + '" to clipboard');
+    });
+
+    clip.on('mouseover', function(client) {
+      $(this).parent('.poppy').tooltip('show');
+    });
+
+    clip.on('mouseout', function(client) {
+      $(this).parent('.poppy').tooltip('hide');
+    });
+  
+  }
 });
 
 App.Store = DS.Store.extend({
