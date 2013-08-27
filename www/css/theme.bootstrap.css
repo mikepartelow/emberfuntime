@@ -1,15 +1,7 @@
-.tablesorter-bootstrap tbody td {
-  padding-left: 1em;
-  font-family: Courier, Sans-serif;
-}
-
-h2 {
-  font-family: Courier, Sans-serif;
-}
-
 /*************
-  Tablesorter Bootstrap theme
+  Bootstrap theme
  *************/
+/* jQuery Bootstrap Theme */
 .tablesorter-bootstrap {
 	width: 100%;
 }
@@ -145,6 +137,3 @@ caption {
 	cursor: pointer;
 	background-color: #e6bf99;
 }
-/*************
-  Tablesorter Bootstrap theme
- *************/

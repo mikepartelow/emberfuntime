@@ -3,14 +3,17 @@
 <head>
 <meta charset="utf-8">
 <title>:: taco issues ::</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/theme.bootstrap.css">
 
 </head>
 <body>
-
-    <table id="issues-table" class="">
+  <div class="container">
+      <div class="row span8 offset4">
+        <h2>Woot</h2>
+    <table id="issues-table" class="table table-bordered">
       <thead>
         <tr><th>id</th><th>owner</th><th>summary</th>
       </thead>
@@ -31,8 +34,8 @@
     </table>        
 
 
-  <script src="js/libs/jquery-1.9.1.js"></script>
-  
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>  
   <script src="js/libs/jquery.tablesorter.min.js"></script>
   <script src="js/libs/jquery.tablesorter.widgets.min.js"></script>
 
@@ -43,5 +46,7 @@
       });
     });
   </script>
+</div>
+</div>
 </body>
 </html>

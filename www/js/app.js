@@ -38,7 +38,7 @@ App.IssuesTableView = Ember.View.extend({
         0: { sorter: false }
       },
       
-      theme:        'blue',
+      theme:        'bootstrap',
       widgets:      [ 'zebra', 'filter', 'uitheme' ],
     });    
   }
