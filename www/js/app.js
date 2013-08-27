@@ -41,7 +41,7 @@ App.IssuesTableView = Ember.View.extend({
       
       theme:        'bootstrap',
       widgets:      [ 'zebra', 'filter', 'uitheme' ],
-    });  
+    });      
   }
 });
 
