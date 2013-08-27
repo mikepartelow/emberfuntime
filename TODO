@@ -1,6 +1,7 @@
 - re-org code into MVC etc. dirs
 
 - spinner while waiting for issues to load
+- try loading 64k of issues file.  it seems very slow to render.  is the problem www.rb or ember?  
 - update issue count based on # shown in table        
 
 - filter/sort via URL
