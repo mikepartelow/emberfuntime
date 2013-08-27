@@ -30,7 +30,11 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="components/zero-clipboard">
-<span class="poppy" data-toggle="tooltip" title="popular"><span class="clippy" {{bindAttr data-clipboard-text=issue.id}}>Copy</span></span>
+    <span class="tippy" data-toggle="tooltip" title="copy to clipboard">
+      <button type="button" class="btn btn-xs btn-primary clippy" {{bindAttr data-clipboard-text=issue.id}}>
+        <span class="glyphicon glyphicon-download"></span>
+      </button>
+    </span>
   </script>
 
   <script type="text/x-handlebars" data-template-name="issues-table-row">

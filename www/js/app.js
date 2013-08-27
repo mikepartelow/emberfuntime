@@ -72,25 +72,28 @@ Ember.Handlebars.helper('ymd', function(d, options) {
 
 App.ZeroClipboardComponent = Ember.Component.extend({
   didInsertElement: function () {
-    this.$('.poppy').tooltip({
+    this.$('.tippy').tooltip({
       placement: 'bottom',
       html: true,
       container: 'body',
-      trigger: 'manual'
+      trigger: 'manual',
+      animation: true
     });   
 
     var clip = new ZeroClipboard(this.$('.clippy'));
     
     clip.on('complete', function (client, args) {
       console.log('Copied "' + args.text + '" to clipboard');
+      $(this).parents('.tippy').attr('title', 'copied to clipboard!').tooltip('fixTitle').tooltip('show');
     });
 
     clip.on('mouseover', function(client) {
-      $(this).parent('.poppy').tooltip('show');
+      $(this).parents('.tippy').tooltip('show');
     });
 
     clip.on('mouseout', function(client) {
-      $(this).parent('.poppy').tooltip('hide');
+      $(this).parents('.tippy').tooltip('hide');
+      $(this).parents('.tippy').attr('title', 'copy to clipboard').tooltip('fixTitle');
     });
   
   }
