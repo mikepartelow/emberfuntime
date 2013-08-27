@@ -2,6 +2,9 @@
 
 - spinner while waiting for issues to load
 - try loading 64k of issues file.  it seems very slow to render.  is the problem www.rb or ember?  
+  - slowness: trigger('update')
+    - apparently it's not needed at all
+    - even if it is don't reference #issues-table, generalize
 - update issue count based on # shown in table        
 
 - filter/sort via URL
