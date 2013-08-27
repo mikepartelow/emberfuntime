@@ -27,19 +27,21 @@ App.IssuesShowRoute = Ember.Route.extend({
 
 App.IssuesTableView = Ember.View.extend({
   templateName: 'issues-table',
+  tagName: 'table',
+  classNames: [ 'table', 'table-bordered', 'tablesorter-bootstrap' ],
   
   didInsertElement: function() {
-    $("#issues-table").tablesorter({
-      sortList: [ [4,1],[3,0] ],      
-
+    this.$().tablesorter({
+      sortList: [ [3,1],[2,0] ],      
+  
       headerTemplate : '{content} {icon}',
       headers: {
-        0: { sorter: false, filter:false }
+        0: { sorter: false }
       },
       
       theme:        'bootstrap',
       widgets:      [ 'zebra', 'filter', 'uitheme' ],
-    });    
+    });  
   }
 });
 
@@ -71,6 +73,8 @@ Ember.Handlebars.helper('ymd', function(d, options) {
 
 
 App.ZeroClipboardComponent = Ember.Component.extend({
+  tagName: 'span',
+  
   didInsertElement: function () {
     this.$('.tippy').tooltip({
       placement: 'bottom',
@@ -81,6 +85,22 @@ App.ZeroClipboardComponent = Ember.Component.extend({
     });   
 
     var clip = new ZeroClipboard(this.$('.clippy'));
+    
+    this.$('.clippy').css({
+      "border": '1px solid lightgray',
+      "background-color": '#efefef',
+      "padding-top": '.25em',
+      "padding-bottom": '.25em',
+    });
+    
+    
+    clip.on('mousedown', function(client) {
+      $(this).css('background-color', '#ffffff');
+    });
+    
+    clip.on('mouseup', function(client) {
+      $(this).css('background-color', '#efefef');
+    });
     
     clip.on('complete', function (client, args) {
       console.log('Copied "' + args.text + '" to clipboard');
@@ -106,7 +126,7 @@ App.Store = DS.Store.extend({
 
 App.Issue.FIXTURES = [
   {
-    id:             '123abc',
+    id:             '008581f14828204576627222245b2e12',
     created_at:     new Date('2013-02-07'),
     summary:        'summary 1',
     owner:          'user 1',
@@ -116,7 +136,7 @@ App.Issue.FIXTURES = [
   },
   
   {
-    id:             'fa32123xyz',
+    id:             '0098581f15f747fd81c98629876543ef',
     created_at:     new Date('2013-07-07'),
     summary:        'summary 2',
     owner:          'user 2',
@@ -126,7 +146,7 @@ App.Issue.FIXTURES = [
   },  
 
   {
-    id:             '123x342432fsdyz',
+    id:             '009852g6htf747fd81c98622245b2e12',
     created_at:     new Date('2013-04-07'),
     summary:        'summary 3',
     owner:          'user 2',
@@ -136,7 +156,7 @@ App.Issue.FIXTURES = [
   },  
 
   {
-    id:             '123xyzre231das',
+    id:             '00985815f747fdab81c98622245b2e12',
     created_at:     new Date('2013-06-06'),
     summary:        'summary 4',
     owner:          'user 2',
@@ -146,7 +166,7 @@ App.Issue.FIXTURES = [
   },  
 
   {
-    id:             '123xyzrew90232',
+    id:             '59387289f8e4f74d81c98622245b2e12',
     created_at:     new Date('2013-01-07'),
     summary:        'summary 5',
     owner:          'user 3',

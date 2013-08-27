@@ -7,19 +7,31 @@ h2 {
   font-family: Courier, Sans-serif;
 }
 
+#th-id {
+  width: 24em;
+}
+
+#th-created {
+  width: 8em;
+}
+
+#th-priority {
+  width: 4em;
+}
+
 /*************
   Tablesorter Bootstrap theme
  *************/
 .tablesorter-bootstrap {
-	width: 100%;
 }
+
 .tablesorter-bootstrap .tablesorter-header,
 .tablesorter-bootstrap tfoot th,
 .tablesorter-bootstrap tfoot td {
 	font: bold 14px/20px Arial, Sans-serif;
 	position: relative;
-	padding: 8px;
-	margin: 0 0 18px;
+  padding: 8px;
+  margin: 0 0 18px;
 	list-style: none;
 	background-color: #FBFBFB;
 	background-image: -moz-linear-gradient(top, white, #efefef);
@@ -29,10 +41,7 @@ h2 {
 	background-image: -o-linear-gradient(top, white, #efefef);
 	background-image: linear-gradient(to bottom, white, #efefef);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType=0);
-	background-repeat: repeat-x;
-	-webkit-box-shadow: inset 0 1px 0 white;
-	-moz-box-shadow: inset 0 1px 0 #ffffff;
-	box-shadow: inset 0 1px 0 white;
+  background-repeat: repeat-x;
 }
 
 .tablesorter-bootstrap .tablesorter-header {
@@ -86,7 +95,7 @@ caption {
 
 /* filter widget */
 .tablesorter-bootstrap .tablesorter-filter-row .tablesorter-filter {
-	width: 98%;
+  width: 98%;
 	height: auto;
 	margin: 0 auto;
 	padding: 4px 6px;

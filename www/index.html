@@ -26,20 +26,19 @@
 
   <script type="text/x-handlebars" data-template-name="issues"> 
     <h2>{{model.length}} Issues</h2>
-    {{view App.IssuesTableView}}
+    {{view App.IssuesTableView id="issues-table"}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="components/zero-clipboard">
     <span class="tippy" data-toggle="tooltip" title="copy to clipboard">
-      <button type="button" class="btn btn-xs btn-primary clippy" {{bindAttr data-clipboard-text=issue.id}}>
-        <span class="glyphicon glyphicon-download"></span>
-      </button>
+      <span class="clippy" {{bindAttr data-clipboard-text=issue.id}}>
+        <img src="css/images/copy-icon.png"></span>
+      </span>
     </span>
   </script>
 
   <script type="text/x-handlebars" data-template-name="issues-table-row">
-    <td>{{zero-clipboard issue=issue}}</td>
-    <td>{{#linkTo 'issue' issue}}{{issue.id}}{{/linkTo}}</td>
+    <td>{{#linkTo 'issue' issue}}{{issue.id}}{{/linkTo}} {{zero-clipboard issue=issue}}</td>
     <td>{{ymd issue.created_at}}</td>
     <td>{{issue.priority}}</td>
     <td>{{issue.status}}</td>
@@ -48,25 +47,21 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="issues-table"> 
-    <table id="issues-table" class="table table-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th>id</th>
-          <th>created</th>
-          <th>priority</th>
-          <th class="filter-select" data-placeholder="All" data-value="Open">status</th>
-          <th class="filter-select" data-placeholder="All" data-value="">owner</th>
-          <th>summary</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each issue in model}}
-          {{view App.IssuesTableRowView}}
-        {{/each}}
-      </tbody>
-    </table>  
-
+    <thead>
+      <tr>
+        <th id="th-id">id</th>
+        <th id="th-created">created</th>
+        <th id="th-priority">prio</th>
+        <th id="th-status" class="filter-select" data-placeholder="All" data-value="Open">status</th>
+        <th id="th-owner" class="filter-select" data-placeholder="All" data-value="">owner</th>
+        <th id="th-summary">summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each issue in model}}
+        {{view App.IssuesTableRowView}}
+      {{/each}}
+    </tbody>
   </script>
 
   <script type="text/x-handlebars" data-template-name="issue">
