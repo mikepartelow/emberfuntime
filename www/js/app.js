@@ -42,16 +42,17 @@ App.IssuesTableView = Ember.View.extend({
       theme:        'bootstrap',
       widgets:      [ 'zebra', 'filter', 'uitheme' ],
     });      
+    
+    // FIXME: this seems hacky but the "afterRender" solution doesn't work because the rows haven't rendered at that point.
+    Ember.run.next(this, function(){
+      this.$().trigger("update");
+    });    
   }
 });
 
 App.IssuesTableRowView = Ember.View.extend({
   templateName: 'issues-table-row',
-  tagName: 'tr',
-  
-  didInsertElement: function() {
-    $("#issues-table").trigger("update");    
-  }  
+  tagName: 'tr'
 });
 
 App.Issue = DS.Model.extend({
