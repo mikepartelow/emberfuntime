@@ -30,12 +30,11 @@ App.IssuesTableView = Ember.View.extend({
   
   didInsertElement: function() {
     $("#issues-table").tablesorter({
-      sortList: [ [3,0],[2,0] ],      
-      widthFixed: true,
+      sortList: [ [4,1],[3,0] ],      
 
       headerTemplate : '{content} {icon}',
       headers: {
-        0: { sorter: false }
+        0: { sorter: false, filter:false }
       },
       
       theme:        'bootstrap',
@@ -68,6 +67,17 @@ App.Issue = DS.Model.extend({
 Ember.Handlebars.helper('ymd', function(d, options) {	  
   // convert a Date into YYYY/mm/dd because JS doesn't have strftime
 	return d.getFullYear().toString() + '/' + ('0' + (d.getMonth() + 1)).slice(-2) + '/' + ('0' + (d.getDate() + 1)).slice(-2);
+});
+
+
+App.ZeroClipboardComponent = Ember.Component.extend({
+    didInsertElement: function () {
+        var clip = new ZeroClipboard(this.$('button'));
+        
+        clip.on('complete', function (client, args) {
+          console.log('Copied "' + args.text + '" to clipboard');
+        });
+    }
 });
 
 App.Store = DS.Store.extend({
