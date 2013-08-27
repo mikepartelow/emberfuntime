@@ -121,58 +121,64 @@ App.ZeroClipboardComponent = Ember.Component.extend({
 
 App.Store = DS.Store.extend({
   revision: 12,
-  adapter: 'DS.FixtureAdapter'
+  adapter: 'DS.RESTAdapter'
 });
 
-App.Issue.FIXTURES = [
-  {
-    id:             '008581f14828204576627222245b2e12',
-    created_at:     new Date('2013-02-07'),
-    summary:        'summary 1',
-    owner:          'user 1',
-    priority:       1,
-    status:         'Open', 
-    description:    "long\ndescription\none"   
-  },
-  
-  {
-    id:             '0098581f15f747fd81c98629876543ef',
-    created_at:     new Date('2013-07-07'),
-    summary:        'summary 2',
-    owner:          'user 2',
-    priority:       1,
-    status:         'Open', 
-    description:    "long\ndescription\nsix"     
-  },  
 
-  {
-    id:             '009852g6htf747fd81c98622245b2e12',
-    created_at:     new Date('2013-04-07'),
-    summary:        'summary 3',
-    owner:          'user 2',
-    priority:       2,
-    status:         'Open',     
-    description:    "long\ndescription\nseven"     
-  },  
-
-  {
-    id:             '00985815f747fdab81c98622245b2e12',
-    created_at:     new Date('2013-06-06'),
-    summary:        'summary 4',
-    owner:          'user 2',
-    priority:       1,
-    status:         'Closed',     
-    description:    "long\ndescription\neight"     
-  },  
-
-  {
-    id:             '59387289f8e4f74d81c98622245b2e12',
-    created_at:     new Date('2013-01-07'),
-    summary:        'summary 5',
-    owner:          'user 3',
-    priority:       3,
-    status:         'Open',     
-    description:    "long\ndescription\nnine"     
-  },  
-  
-];
+// App.Store = DS.Store.extend({
+//   revision: 12,
+//   adapter: 'DS.FixtureAdapter'
+// });
+// 
+// App.Issue.FIXTURES = [
+  // {
+  //   id:             '008581f14828204576627222245b2e12',
+  //   created_at:     new Date('2013-02-07'),
+  //   summary:        'summary 1',
+  //   owner:          'user 1',
+  //   priority:       1,
+  //   status:         'Open', 
+  //   description:    "long\ndescription\none"   
+  // },
+//   
+//   {
+//     id:             '0098581f15f747fd81c98629876543ef',
+//     created_at:     new Date('2013-07-07'),
+//     summary:        'summary 2',
+//     owner:          'user 2',
+//     priority:       1,
+//     status:         'Open', 
+//     description:    "long\ndescription\nsix"     
+//   },  
+// 
+//   {
+//     id:             '009852g6htf747fd81c98622245b2e12',
+//     created_at:     new Date('2013-04-07'),
+//     summary:        'summary 3',
+//     owner:          'user 2',
+//     priority:       2,
+//     status:         'Open',     
+//     description:    "long\ndescription\nseven"     
+//   },  
+// 
+//   {
+//     id:             '00985815f747fdab81c98622245b2e12',
+//     created_at:     new Date('2013-06-06'),
+//     summary:        'summary 4',
+//     owner:          'user 2',
+//     priority:       1,
+//     status:         'Closed',     
+//     description:    "long\ndescription\neight"     
+//   },  
+// 
+//   {
+//     id:             '59387289f8e4f74d81c98622245b2e12',
+//     created_at:     new Date('2013-01-07'),
+//     summary:        'summary 5',
+//     owner:          'user 3',
+//     priority:       3,
+//     status:         'Open',     
+//     description:    "long\ndescription\nnine"     
+//   },  
+//   
+// ];
