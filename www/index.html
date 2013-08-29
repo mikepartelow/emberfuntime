@@ -26,7 +26,6 @@
 
   <script type="text/x-handlebars" data-template-name="issues">  
     {{#if model}}
-      <h2>{{model.length}} Issues</h2>
       {{view App.IssuesTableView id="issues-table"}}
     {{else}}
       Loading Issues...
@@ -51,21 +50,25 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="issues-table"> 
-    <thead>
-      <tr>
-        <th id="th-id">id</th>
-        <th id="th-created">created</th>
-        <th id="th-priority">prio</th>
-        <th id="th-status" class="filter-select" data-placeholder="All" data-value="Open">status</th>
-        <th id="th-owner" class="filter-select" data-placeholder="All" data-value="">owner</th>
-        <th id="th-summary">summary</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each issue in model}}
-        {{view App.IssuesTableRowView}}
-      {{/each}}
-    </tbody>
+    <h2>{{view.issue_count}} Issues</h2>
+  
+    <table class="table table-bordered tablesorter-bootstrap">
+      <thead>
+        <tr>
+          <th id="th-id">id</th>
+          <th id="th-created">created</th>
+          <th id="th-priority">prio</th>
+          <th id="th-status" class="filter-select" data-placeholder="All" data-value="Open">status</th>
+          <th id="th-owner" class="filter-select" data-placeholder="All" data-value="">owner</th>
+          <th id="th-summary">summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each issue in model}}
+          {{view App.IssuesTableRowView}}
+        {{/each}}
+      </tbody>
+    </table>
   </script>
 
   <script type="text/x-handlebars" data-template-name="issue">

@@ -27,16 +27,19 @@ App.IssuesShowRoute = Ember.Route.extend({
 
 App.IssuesTableView = Ember.View.extend({
   templateName: 'issues-table',
-  tagName: 'table',
-  classNames: [ 'table', 'table-bordered', 'tablesorter-bootstrap' ],
+  issue_count: 0,
   
   didInsertElement: function() {
+    this.set('issue_count', this.get('controller.model.length'));
+      
+    var the_table = this;
+    
     function countRows() {
       var count = $(this).find("tr.issue-row:visible").length;
-      alert(count);
+      the_table.set('issue_count', count);
     }
     
-    this.$().tablesorter({
+    this.$().find('table').tablesorter({
       sortList: [ [3,1],[2,0] ],      
 
       headerTemplate : '{content} {icon}',
@@ -47,12 +50,12 @@ App.IssuesTableView = Ember.View.extend({
       theme:        'bootstrap',
       widgets:      [ 'zebra', 'filter', 'uitheme' ],
       
-    }).bind('updateComplete', countRows).bind('filterEnd', countRows);
+    }).bind('filterEnd', countRows);
     
-    // FIXME: this seems hacky but the "afterRender" solution doesn't work because the rows haven't rendered at that point.
-    Ember.run.next(this, function() {
-      this.$().trigger("update");
-    });    
+    // // FIXME: this seems hacky but the "afterRender" solution doesn't work because the rows haven't rendered at that point.
+    // Ember.run.next(this, function() {
+    //   this.$().find('table').trigger("update");
+    // });    
   }
 });
 
