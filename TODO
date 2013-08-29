@@ -11,3 +11,4 @@
 
 - we need individual issue JSON responses, otherwise linking directly to an issue doesn't work
 - zebra gets unstriped when filtering
+- retain sort/filter of index when hitting "back" from individual issue
