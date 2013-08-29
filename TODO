@@ -8,3 +8,6 @@
 - update issue count based on # shown in table        
 
 - filter/sort via URL
+
+- we need individual issue JSON responses, otherwise linking directly to an issue doesn't work
+- zebra gets unstriped when filtering
