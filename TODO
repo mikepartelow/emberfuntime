@@ -1,5 +1,7 @@
 - re-org code into MVC etc. dirs
 
+- date parsing is off (ignoring timezone?).  consider getting a lib.
+
 - spinner while waiting for issues to load
 - try loading 64k of issues file.  it seems very slow to render.  is the problem www.rb or ember?  
   - slowness: trigger('update')
